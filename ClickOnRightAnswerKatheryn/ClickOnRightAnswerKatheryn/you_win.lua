@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------------------------
--- you_lose.lua
+-- you_win
 -- Created by: Gil Robern
 -- Modified by: Your Name
 -- Date: Month Day, Year
@@ -18,7 +18,7 @@ local widget = require( "widget" )
 -----------------------------------------------------------------------------------------
 
 -- Naming Scene
-sceneName = "you_lose"
+sceneName = "you_win"
 
 -----------------------------------------------------------------------------------------
 
@@ -48,13 +48,17 @@ function scene:create( event )
     local sceneGroup = self.view
 
     -- Display background
-    bkg = display.newImage("Images/You Lose.png")
+    bkg = display.newImage("Images/You Win Screen.png")
     bkg.x = display.contentCenterX
     bkg.y = display.contentCenterY
     bkg.width = display.contentWidth
     bkg.height = display.contentHeight
     -----------------------------------------------------------------------------------------     
-    local youLose
+    local youWinSound = audio.loadSound("Sounds/youWinSound.wav")
+
+    local youWinSoundChannel
+
+    youWinSoundChannel = audio.play(youWinSound)
     -- Associating display objects with this scene 
     sceneGroup:insert( bkg )
 end

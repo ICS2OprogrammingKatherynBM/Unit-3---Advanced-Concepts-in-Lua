@@ -35,6 +35,7 @@ local scene = composer.newScene( sceneName )
 local bkg_image
 local playButton
 local creditsButton
+local instructions
 
 -----------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
@@ -52,6 +53,8 @@ local function Level1ScreenTransition( )
     composer.gotoScene( "level1_screen", {effect = "zoomInOutFade", time = 1000})
 end    
 
+local function instructionsTransition()
+    
 -- INSERT LOCAL FUNCTION DEFINITION THAT GOES TO INSTRUCTIONS SCREEN 
 
 -----------------------------------------------------------------------------------------
