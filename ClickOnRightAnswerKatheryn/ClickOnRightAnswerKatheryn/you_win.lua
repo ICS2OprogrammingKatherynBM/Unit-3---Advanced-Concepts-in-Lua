@@ -53,7 +53,7 @@ function scene:create( event )
     bkg.y = display.contentCenterY
     bkg.width = display.contentWidth
     bkg.height = display.contentHeight
-    -----------------------------------------------------------------------------------------     
+   
     local youWinSound = audio.loadSound("Sounds/youWinSound.wav")
 
     local youWinSoundChannel
