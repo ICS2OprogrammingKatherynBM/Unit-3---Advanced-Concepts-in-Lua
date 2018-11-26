@@ -346,6 +346,8 @@ end
 local function TouchListenerAnswerbox3(touch)
     --only if none of the other boxes were touched
     if(answerboxAlreadyTouched == false) and
+        (alternateAnswerBox1AlreadyTouched == false) and 
+        (alternateAnswerBox2AlreadyTouched)
 -- Function that Adds Listeners to each answer box
 local function AddAnswerBoxEventListeners()
     answerbox:addEventListener("touch", TouchListenerAnswerbox)
