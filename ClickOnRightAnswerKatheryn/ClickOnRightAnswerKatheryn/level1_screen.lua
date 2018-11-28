@@ -85,6 +85,11 @@ local congratulationText
 -- Displays text that says correct.
 local correct 
 
+--Display text that says incorrect
+local incorrect
+
+local incorrectText
+
 -- Displays the level text of time text
 local level1Text 
 
@@ -171,6 +176,7 @@ local function RestartScene()
 
     alreadyClickedAnswer = false
     correct.isVisible = false
+    incorrect.isVisible = false
 
     livesText.text = "Number of lives = " .. tostring(lives)
     numberCorrectText.text = "Number correct = " .. tostring(numberCorrect)
@@ -217,6 +223,8 @@ local function TouchListenerWrongAnswer1(touch)
 
 
         if (answer ~= tonumber(userAnswer)) then
+            incorrect.isVisible = true
+            correct.isVisible = false
             -- decrease a life
             lives = lives - 1
             -- call RestartScene after 1 second
@@ -237,6 +245,12 @@ local function TouchListenerWrongAnswer2(touch)
 
 
             if (answer ~= tonumber(userAnswer)) then
+                incorrect.isVisible = true
+                correct.isVisible = false
+
+                incorrectText.isVisible = true
+
+
                 -- decrease a life
                 lives = lives - 1
                 -- call RestartScene after 1 second
@@ -254,6 +268,9 @@ local function TouchListenerWrongAnswer3(touch)
         alreadyClickedAnswer = true
     
         if (answer ~= tonumber(userAnswer)) then
+            incorrect.isVisible = true
+            correct.isVisible = false
+
             --decrease a life 
             lives = lives - 1
             --call restartScene after a second
@@ -333,6 +350,11 @@ function scene:create( event )
     correct:setTextColor(100/255, 47/255, 210/255)
     correct.isVisible = false
 
+    --incorrect text object
+    incorrect = display.newText("Incorrect", display.contentWidth/2, display.contentHeight *1/3, nil,50 )
+    incorrect:setTextColor(100/255, 47/255, 210/255)
+    incorrect.isVisible = false
+
     -- create the text object that will say Out of Time, set the colour and then hide it
     outOfTimeText = display.newText("Out of Time!", display.contentWidth*2/5, display.contentHeight*1/3, nil, 50)
     outOfTimeText:setTextColor(100/255, 47/255, 210/255)
@@ -353,6 +375,7 @@ function scene:create( event )
     sceneGroup:insert( wrongAnswer3TextObject )
     sceneGroup:insert( congratulationText )
     sceneGroup:insert( correct )
+    sceneGroup:insert( incorrect )
     sceneGroup:insert( level1Text )
 end
 
